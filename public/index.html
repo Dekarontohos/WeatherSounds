@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Weather sounds</title>
+		<link rel="shortcut icon" href="temp/music.png" />
+	</head>
+	<body>
+		<h1>Weather sounds</h1>
+		<div class="container">
+			<div
+				class="tile"
+				style="background-image: url('temp/summer-bg.jpg')"
+				id="sunButton"
+			>
+				<img src="temp/sun.svg" class="icon" alt="Иконка" />
+				<audio id="sunAudio" src="temp/summer.mp3"></audio>
+			</div>
+			<div
+				class="tile"
+				style="background-image: url('temp/rainy-bg.jpg')"
+				id="rainButton"
+			>
+				<img
+					src="temp/cloud-rain.svg"
+					class="icon"
+					alt="Иконка"
+				/><audio id="rainAudio" src="temp/rain.mp3"></audio>
+			</div>
+			<div
+				class="tile"
+				style="background-image: url('temp/winter-bg.jpg')"
+				id="winterButton"
+			>
+				<img
+					src="temp/cloud-snow.svg"
+					class="icon"
+					alt="Иконка"
+				/><audio id="winterAudio" src="temp/winter.mp3"></audio>
+			</div>
+		</div>
+		<div class="slider-container">
+			<input
+				type="range"
+				id="volumeSlider"
+				min="0"
+				max="1"
+				step="0.01"
+				value="1"
+				class="volumeSlider"
+			/>
+		</div>
+	</body>
+</html>
