@@ -87,7 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const volumeSlider = document.getElementById("volumeSlider");
 volumeSlider.addEventListener("input", function () {
+	const value = parseFloat(this.value);
+	updateSliderBackground(value);
 	if (currentAudio) {
-		currentAudio.volume = parseFloat(this.value);
+		currentAudio.volume = value;
 	}
 });
+
+function updateSliderBackground(value) {
+	volumeSlider.style.background = `linear-gradient(to right, #3399ff ${
+		value * 100
+	}%, #ccc ${value * 100}%)`;
+}
+
+updateSliderBackground(parseFloat(volumeSlider.value));

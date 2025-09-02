@@ -56,25 +56,24 @@ body {
 }
 
 #volumeSlider {
-	justify-content: center;
-	width: 300px;
-	height: 8px;
 	-webkit-appearance: none;
 	appearance: none;
+	width: 300px;
+	height: 8px;
 	background: transparent;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 #volumeSlider::-webkit-slider-runnable-track {
-	width: 100%;
+	background: transparent;
 	height: 8px;
-	background: #3399ff;
 	border-radius: 4px;
 }
 
 #volumeSlider::-moz-range-track {
-	width: 100%;
+	background: transparent;
 	height: 8px;
-	background: #3399ff;
 	border-radius: 4px;
 }
 
