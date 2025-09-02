@@ -3,49 +3,68 @@ console.log("Привет, мир!");
 
 function setBackgroundImage(imageUrl) {
 	document.body.style.backgroundImage = `url('${imageUrl}')`;
-	document.body.style.backgroundSize = "cover";
-	document.body.style.backgroundPosition = "center";
-	document.body.style.backgroundRepeat = "no-repeat";
+}
+
+function setDefault() {
+	document.getElementById("sunIcon").src = "temp/sun.svg";
+	document.getElementById("rainIcon").src = "temp/cloud-rain.svg";
+	document.getElementById("winterIcon").src = "temp/cloud-snow.svg";
 }
 
 let currentAudio = null;
-let favicon = document.querySelector("link[rel='shortcut icon']");
 function buttonOnClick(buttonId) {
-	let audio;
+	setDefault();
+	let background;
+	let audioId;
+	let icon;
+	let iconId;
 	switch (buttonId) {
 		case "sunButton":
-			setBackgroundImage("temp/summer-bg.jpg");
-			audio = document.getElementById("sunAudio");
-			favicon.href = "temp/sun.svg";
+			background = "temp/summer-bg.jpg";
+			audioId = "sunAudio";
+			icon = "temp/sun.svg";
+			iconId = "sunIcon";
 			break;
 		case "rainButton":
-			setBackgroundImage("temp/rainy-bg.jpg");
-			audio = document.getElementById("rainAudio");
-			favicon.href = "temp/cloud-rain.svg";
+			background = "temp/rainy-bg.jpg";
+			audioId = "rainAudio";
+			icon = "temp/cloud-rain.svg";
+			iconId = "rainIcon";
 			break;
 		case "winterButton":
-			setBackgroundImage("temp/winter-bg.jpg");
-			audio = document.getElementById("winterAudio");
-			favicon.href = "temp/cloud-snow.svg";
+			background = "temp/winter-bg.jpg";
+			audioId = "winterAudio";
+			icon = "temp/cloud-snow.svg";
+			iconId = "winterIcon";
 			break;
 		default:
 			return;
 	}
 
-	if (currentAudio === audio) {
-		if (!audio.paused) {
-			audio.pause();
+	setBackgroundImage(background);
+	let audioElement = document.getElementById(audioId);
+	let favicon = document.querySelector("link[rel='shortcut icon']");
+	let iconElement = document.getElementById(iconId);
+
+	if (currentAudio === audioElement) {
+		if (!audioElement.paused) {
+			audioElement.pause();
 			favicon.href = "temp/pause.svg";
+			iconElement.src = "temp/pause.svg";
 		} else {
-			audio.play();
+			audioElement.play();
+			iconElement.src = icon;
+			favicon.href = icon;
 		}
 	} else {
 		if (currentAudio && !currentAudio.paused) {
 			currentAudio.pause();
 			currentAudio.currentTime = 0;
 		}
-		audio.play();
-		currentAudio = audio;
+		audioElement.play();
+		iconElement.src = icon;
+		favicon.href = icon;
+		currentAudio = audioElement;
 	}
 }
 
