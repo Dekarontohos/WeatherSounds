@@ -1,4 +1,20 @@
 import "./index.scss";
+
+// Импортируем статические файлы
+import sunIcon from "./assets/icons/sun.svg";
+import rainIcon from "./assets/icons/cloud-rain.svg";
+import snowIcon from "./assets/icons/cloud-snow.svg";
+import pauseIcon from "./assets/icons/pause.svg";
+// import musicIcon from "./assets/music.png"; // Не используется в коде
+
+import summerBg from "./assets/summer-bg.jpg";
+import rainyBg from "./assets/rainy-bg.jpg";
+import winterBg from "./assets/winter-bg.jpg";
+
+import summerSound from "./assets/sounds/summer.mp3";
+import rainSound from "./assets/sounds/rain.mp3";
+import winterSound from "./assets/sounds/winter.mp3";
+
 console.log("Привет, мир!");
 
 function setBackgroundImage(imageUrl) {
@@ -6,9 +22,9 @@ function setBackgroundImage(imageUrl) {
 }
 
 function setDefault() {
-	document.getElementById("sunIcon").src = "temp/sun.svg";
-	document.getElementById("rainIcon").src = "temp/cloud-rain.svg";
-	document.getElementById("winterIcon").src = "temp/cloud-snow.svg";
+	document.getElementById("sunIcon").src = sunIcon;
+	document.getElementById("rainIcon").src = rainIcon;
+	document.getElementById("winterIcon").src = snowIcon;
 }
 
 let currentAudio = null;
@@ -20,21 +36,21 @@ function buttonOnClick(buttonId) {
 	let iconId;
 	switch (buttonId) {
 		case "sunButton":
-			background = "temp/summer-bg.jpg";
+			background = summerBg;
 			audioId = "sunAudio";
-			icon = "temp/sun.svg";
+			icon = sunIcon;
 			iconId = "sunIcon";
 			break;
 		case "rainButton":
-			background = "temp/rainy-bg.jpg";
+			background = rainyBg;
 			audioId = "rainAudio";
-			icon = "temp/cloud-rain.svg";
+			icon = rainIcon;
 			iconId = "rainIcon";
 			break;
 		case "winterButton":
-			background = "temp/winter-bg.jpg";
+			background = winterBg;
 			audioId = "winterAudio";
-			icon = "temp/cloud-snow.svg";
+			icon = snowIcon;
 			iconId = "winterIcon";
 			break;
 		default:
@@ -45,12 +61,27 @@ function buttonOnClick(buttonId) {
 	let audioElement = document.getElementById(audioId);
 	let favicon = document.querySelector("link[rel='shortcut icon']");
 	let iconElement = document.getElementById(iconId);
+	
+	// Устанавливаем источник аудио файла
+	let audioSrc;
+	switch (buttonId) {
+		case "sunButton":
+			audioSrc = summerSound;
+			break;
+		case "rainButton":
+			audioSrc = rainSound;
+			break;
+		case "winterButton":
+			audioSrc = winterSound;
+			break;
+	}
+	audioElement.src = audioSrc;
 
 	if (currentAudio === audioElement) {
 		if (!audioElement.paused) {
 			audioElement.pause();
-			favicon.href = "temp/pause.svg";
-			iconElement.src = "temp/pause.svg";
+			favicon.href = pauseIcon;
+			iconElement.src = pauseIcon;
 		} else {
 			audioElement.play();
 			iconElement.src = icon;
