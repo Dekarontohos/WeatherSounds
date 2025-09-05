@@ -1,11 +1,9 @@
 import "./index.scss";
 
-// Импортируем статические файлы
 import sunIcon from "./assets/icons/sun.svg";
 import rainIcon from "./assets/icons/cloud-rain.svg";
 import snowIcon from "./assets/icons/cloud-snow.svg";
 import pauseIcon from "./assets/icons/pause.svg";
-// import musicIcon from "./assets/music.png"; // Не используется в коде
 
 import summerBg from "./assets/pictures/summer-bg.jpg";
 import rainyBg from "./assets/pictures/rainy-bg.jpg";
@@ -14,8 +12,6 @@ import winterBg from "./assets/pictures/winter-bg.jpg";
 import summerSound from "./assets/sounds/summer.mp3";
 import rainSound from "./assets/sounds/rain.mp3";
 import winterSound from "./assets/sounds/winter.mp3";
-
-console.log("Привет, мир!");
 
 function setBackgroundImage(imageUrl) {
 	document.body.style.backgroundImage = `url('${imageUrl}')`;
@@ -61,8 +57,7 @@ function buttonOnClick(buttonId) {
 	let audioElement = document.getElementById(audioId);
 	let favicon = document.querySelector("link[rel='shortcut icon']");
 	let iconElement = document.getElementById(iconId);
-	
-	// Устанавливаем источник аудио файла
+
 	let audioSrc;
 	switch (buttonId) {
 		case "sunButton":
@@ -75,7 +70,9 @@ function buttonOnClick(buttonId) {
 			audioSrc = winterSound;
 			break;
 	}
-	audioElement.src = audioSrc;
+	if (audioElement.src !== audioSrc) {
+		audioElement.src = audioSrc;
+	}
 
 	if (currentAudio === audioElement) {
 		if (!audioElement.paused) {
