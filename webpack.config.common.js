@@ -18,8 +18,11 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{
-					from: path.resolve(__dirname, "src/assets"),
-					to: path.resolve(__dirname, "dist"),
+					from: path.resolve(
+						__dirname,
+						"src/assets/pictures/music.png"
+					),
+					to: path.resolve(__dirname, "dist/assets"),
 				},
 			],
 		}),
@@ -47,13 +50,13 @@ module.exports = {
 					"sass-loader",
 				],
 			},
-					{
-			test: /\.(png|jpe?g|gif|svg|mp3|woff|woff2|eot|ttf|otf)$/i,
-			type: "asset/resource",
-			generator: {
-				filename: "assets/[name][ext]",
+			{
+				test: /\.(png|jpe?g|gif|svg|mp3|woff|woff2|eot|ttf|otf)$/i,
+				type: "asset/resource",
+				generator: {
+					filename: "assets/[name][ext]",
+				},
 			},
-		},
 		],
 	},
 };

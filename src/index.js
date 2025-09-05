@@ -7,9 +7,9 @@ import snowIcon from "./assets/icons/cloud-snow.svg";
 import pauseIcon from "./assets/icons/pause.svg";
 // import musicIcon from "./assets/music.png"; // Не используется в коде
 
-import summerBg from "./assets/summer-bg.jpg";
-import rainyBg from "./assets/rainy-bg.jpg";
-import winterBg from "./assets/winter-bg.jpg";
+import summerBg from "./assets/pictures/summer-bg.jpg";
+import rainyBg from "./assets/pictures/rainy-bg.jpg";
+import winterBg from "./assets/pictures/winter-bg.jpg";
 
 import summerSound from "./assets/sounds/summer.mp3";
 import rainSound from "./assets/sounds/rain.mp3";
