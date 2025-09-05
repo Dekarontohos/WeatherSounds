@@ -47,17 +47,13 @@ module.exports = {
 					"sass-loader",
 				],
 			},
-			{
-				test: /\.(woff|woff2|eot|ttf|otf)$/i,
-				type: "asset/resource",
+					{
+			test: /\.(png|jpe?g|gif|svg|mp3|woff|woff2|eot|ttf|otf)$/i,
+			type: "asset/resource",
+			generator: {
+				filename: "assets/[name][ext]",
 			},
-			{
-				test: /\.(png|jpe?g|gif|svg|mp3|woff2?|ttf|eot)$/i,
-				type: "asset/resource",
-				generator: {
-					filename: "assets/[hash][ext][query]",
-				},
-			},
+		},
 		],
 	},
 };
