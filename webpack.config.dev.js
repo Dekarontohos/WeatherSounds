@@ -1,8 +1,8 @@
-const { merge } = require("webpack-merge");
-const coomonConfig = require("./webpack.config.common");
-const ESLintPlugin = require("eslint-webpack-plugin");
+import { merge } from "webpack-merge";
+import coomonConfig from "./webpack.config.common.js";
+import ESLintPlugin from "eslint-webpack-plugin";
 
-module.exports = merge(coomonConfig, {
+export default merge(coomonConfig, {
 	mode: "development",
 	devtool: "inline-source-map",
 	devServer: {

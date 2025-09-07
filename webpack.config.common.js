@@ -1,9 +1,14 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+import path from "path";
+import postCSS from "postcss-preset-env";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-module.exports = {
+export default {
 	context: path.resolve(__dirname, "src"),
 	entry: "./index.js",
 	output: {
@@ -43,7 +48,7 @@ module.exports = {
 						loader: "postcss-loader",
 						options: {
 							postcssOptions: {
-								plugins: [require("postcss-preset-env")],
+								plugins: [postCSS],
 							},
 						},
 					},

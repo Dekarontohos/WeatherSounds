@@ -1,9 +1,9 @@
-const { merge } = require("webpack-merge");
-const coomonConfig = require("./webpack.config.common");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+import { merge } from "webpack-merge";
+import coomonConfig from "./webpack.config.common.js";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
 
-module.exports = merge(coomonConfig, {
+export default merge(coomonConfig, {
 	mode: "production",
 	devtool: "source-map",
 	optimization: {
